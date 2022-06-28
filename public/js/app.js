@@ -1,6 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+<<<<<<< Updated upstream
 /***/ "./node_modules/alpinejs/dist/module.esm.js":
 /*!**************************************************!*\
   !*** ./node_modules/alpinejs/dist/module.esm.js ***!
@@ -2912,6 +2913,8 @@ var module_default = src_default;
 
 /***/ }),
 
+=======
+>>>>>>> Stashed changes
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -5076,11 +5079,15 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+<<<<<<< Updated upstream
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
+=======
+
+>>>>>>> Stashed changes
 
 /***/ }),
 
@@ -22340,12 +22347,18 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
+<<<<<<< Updated upstream
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+=======
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nTypeError: Cannot read properties of undefined (reading 'config')\n    at getTailwindConfig (/home/areeb/Sites/laravel_practise/email/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:131:62)\n    at /home/areeb/Sites/laravel_practise/email/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:22:92\n    at /home/areeb/Sites/laravel_practise/email/node_modules/tailwindcss/lib/processTailwindFeatures.js:38:11\n    at plugins (/home/areeb/Sites/laravel_practise/email/node_modules/tailwindcss/lib/index.js:30:63)\n    at LazyResult.runOnRoot (/home/areeb/Sites/laravel_practise/email/node_modules/postcss/lib/lazy-result.js:339:16)\n    at LazyResult.runAsync (/home/areeb/Sites/laravel_practise/email/node_modules/postcss/lib/lazy-result.js:393:26)\n    at LazyResult.async (/home/areeb/Sites/laravel_practise/email/node_modules/postcss/lib/lazy-result.js:221:30)\n    at LazyResult.then (/home/areeb/Sites/laravel_practise/email/node_modules/postcss/lib/lazy-result.js:206:17)\n    at processResult (/home/areeb/Sites/laravel_practise/email/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /home/areeb/Sites/laravel_practise/email/node_modules/webpack/lib/NormalModule.js:860:5\n    at /home/areeb/Sites/laravel_practise/email/node_modules/loader-runner/lib/LoaderRunner.js:400:11\n    at /home/areeb/Sites/laravel_practise/email/node_modules/loader-runner/lib/LoaderRunner.js:252:18\n    at context.callback (/home/areeb/Sites/laravel_practise/email/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/home/areeb/Sites/laravel_practise/email/node_modules/postcss-loader/dist/index.js:142:7)");
+>>>>>>> Stashed changes
 
 /***/ }),
 
@@ -22572,6 +22585,7 @@ process.umask = function() { return 0; };
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+<<<<<<< Updated upstream
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
@@ -22608,6 +22622,9 @@ process.umask = function() { return 0; };
 /******/ 		};
 /******/ 	})();
 /******/ 	
+=======
+/************************************************************************/
+>>>>>>> Stashed changes
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -22669,6 +22686,7 @@ process.umask = function() { return 0; };
 /******/ 		};
 /******/ 	})();
 /******/ 	
+<<<<<<< Updated upstream
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -22723,14 +22741,22 @@ process.umask = function() { return 0; };
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
+=======
+>>>>>>> Stashed changes
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
+<<<<<<< Updated upstream
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+=======
+/******/ 	__webpack_require__("./resources/js/app.js");
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/css/app.css");
+>>>>>>> Stashed changes
 /******/ 	
 /******/ })()
 ;
