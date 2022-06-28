@@ -1,5 +1,55 @@
+THESE NOTES ARE FOR ME AND FOR THOSE WHO WANT TO LEARN IT BUT IN CHUNKS RATHER THAN IN 1 BIG PIECE
+
+
 We can use laravel gates so that we can authorize a user and check if they has the correct credentials to 
 perform a specific task
 
 Inside the AuthServiceProvider we need the boot method where any coding done on this method will call the 
 auth facade 
+
+Before using the boot method and gate, we need a new page to see if use is admin or not, this is done by 
+making a new public function in your controller and returning a view from there to the web.php. 
+
+After this we go back to the AuthServiceProvider and in the boot method we define a gate using this syntax
+" Gate::define(); ". Inside the define method we need to provide some parameters. 
+
+First parameter is the key and this has to be a string that tells us what we want to do. We want to see if 
+the admin is set or not and only the admin can access that private page we made in the views folder, the 
+second parameter is the closure so we define a function in it.
+
+Gate::define('admin-only', function ($user)
+        {
+            if($user->IsAdmin == 1)
+            {
+                
+            }
+        });
+
+the $user is the object we want to check. Since we have defined a boolean in database for the IsAdmin column
+so in this if statement we will check through 1 and 0. 1 being yes and 0 being no.
+
+The new function we defined in the controller will be used to set gates and check for user's status as admin or
+not. 
+if(Gate::allows('admin-only', auth()->user()))
+        {
+            return view('private');
+        }
+        
+        else
+        {
+            abort(403);
+        }
+
+the Gate::allows() takes in 2 parameters, first is the gate name i.e admin-only and next will be the gate methods
+in this case we can use the allows method so that we can check to see if user is admin or not. If the user is admin
+then the allow method will let that user access the private page of admins otherwise there will be an abort method
+stating the error and stoping the user.
+
+Alternatively we can use the denies method to stop users from entering the private admin's page by reversing the
+condition used in the if-else code blocks.
+
+In short the allows method will allow the entery of a user if they pass the gate check and the denies will stop the
+user if they pass the gate check.
+
+We can use ENUM for multiple rolls such as admin, moderators, users and more. The gates can be used as a check for
+all the multiple roles and can save us from using a lot of if-else statements
