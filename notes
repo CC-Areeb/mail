@@ -1,0 +1,5 @@
+We can use laravel gates so that we can authorize a user and check if they has the correct credentials to 
+perform a specific task
+
+Inside the AuthServiceProvider we need the boot method where any coding done on this method will call the 
+auth facade 
