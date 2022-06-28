@@ -52,4 +52,8 @@ In short the allows method will allow the entery of a user if they pass the gate
 user if they pass the gate check.
 
 We can use ENUM for multiple rolls such as admin, moderators, users and more. The gates can be used as a check for
-all the multiple roles and can save us from using a lot of if-else statements
+all the multiple roles and can save us from using a lot of if-else statements.
+
+
+
+Mailing:
