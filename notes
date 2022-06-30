@@ -104,4 +104,55 @@ NOTE: make sure you copy the correct details of mailtrap for the .env file
 
 Setting up our mailing system to the log file:
 Inside the env file we can change the MAIL_MAILER=smtp to MAIL_MAILER=log and when we send the mail, we will get 
-the mail inside the log file
+the mail inside the log file.
+
+
+How to insert any type of attachments in email in laravel:
+Always a good idea to have a controller which will handle all the details about your emails and attachments.
+
+
+First we need to define the route with the controller that is handling the web.php. Then go inside that controller
+and inside the function we have to pull in the use "App\Mail\Your_mail_blade_file" and "Illuminate\Support\Facades\Mail"
+these 2 use statments so that they will allow us to use our own mailing markdown template we have made by using the CLI.
+
+
+Next we need to define the "Mail::to('someone@example.com')->send(new AttachmentMail())" inside the controller so that we 
+can sent our mail by using the "to()" method. After this we go in our app-->mail-->You_mail_template_name.php and inside
+the build method, below the markdown we have to return the mail with some methods as shown below:
+
+return $this->markdown('your_folder_name.your_file_name')
+            ->subject('your subject')
+            ->attach(public_path('/images/your_file_name.jpg'));
+
+the subject is the same as we use when we are sending mail from gmail or hotmail.
+
+the attach is used so that we can send files such as images or pdfs, this method takes in 2 parameters
+first is the mandatory parameter of the path of the file so in the above case we use the method called 
+"public_path()" which is the public folder name and inside this we give the path of folder that the attachment is in
+so in this case "/images/your_file_name.jpg"
+
+
+We can also pass in another optional array as the second argument and this can have few keys and values
+such as we can change the name of the file or define the mime type of the file.
+
+
+"
+
+public function build()
+    {
+        return $this->markdown('emails.attachment')
+                    ->subject('How to attach images')
+                    ->attach(public_path('/images/fantasy.jpg'), [
+                        'as' => 'nature.jpg',
+                        'mime' => 'application/jpg',
+                    ]);
+    }
+    
+"
+(The double quotes "" are just for emphises when I am writing these notes for myself).
+
+NOTE:
+What is MIME type?
+A MIME type (or media type) is an identifier for file formats or format contents on the Internet.
+MIME stands for Multipurpose Internet Mail Extensions and all MIME types are officially maintained by the
+Internet Assigned Numbers Authority (IANA).
