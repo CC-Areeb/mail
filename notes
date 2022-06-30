@@ -102,3 +102,6 @@ the WelcomeMail is a mailable
 NOTE: make sure you copy the correct details of mailtrap for the .env file
 
 
+Setting up our mailing system to the log file:
+Inside the env file we can change the MAIL_MAILER=smtp to MAIL_MAILER=log and when we send the mail, we will get 
+the mail inside the log file
