@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Mail\WelcomeMail;
@@ -18,10 +19,13 @@ use Illuminate\Support\Facades\Mail;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/admin', [HomeController::class, 'private']);
-Route::get('/email', function(){
-    Mail::to('areeb@example.com')->send(new WelcomeMail());
-    return new WelcomeMail();
-});
+
+// Route::get('/email', function(){
+//     Mail::to('areeb@example.com')->send(new WelcomeMail());
+//     return new WelcomeMail();
+// });
+
+Route::get('/email', [EmailController::class, 'email']);
 
 Route::middleware([
     'auth:sanctum',
