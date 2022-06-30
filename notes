@@ -199,3 +199,67 @@ The "via()" method has a notifiable as a parameter which will defines which noti
 
 The "toMail()" method is an indivisual method that is used for every notification channel that allows us to specifically
 define how to send one of these notifications.
+
+We have different way of defining migration table for a notification. use the command below
+"php artisan notification:table"
+
+
+Inside the "toMail()" method we can either define static messages or we can give our own names as a single word or a camelcase
+word so that in the controller we can use those as keys and pass values and all this is done inside the array as shown below:
+
+
+notification.php:
+"
+
+
+    private $enrollmentData;
+
+    /**
+     * Create a new notification instance.
+     *
+     * @return void
+     */
+    public function __construct($enrollmentData)
+    {
+        $this->enrollmentData = $enrollmentData;
+    }
+
+/**
+    * Get the mail representation of the notification.
+    *
+    * @param  mixed  $notifiable
+    * @return \Illuminate\Notifications\Messages\MailMessage
+    */
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+                    ->line($this->enrollmentData['body'])
+                    ->action($this->enrollmentData['enrollmentText  '], $this->enrollmentData['url'])
+                    ->line($this->enrollmentData['Thanks']);
+    }
+"
+
+controller:
+"
+public function sendTestNotification()
+    {
+        $enrollmentData = [
+            'body' => 'You received a notification',
+            'enrollmentTextenrollmentText' => '',
+            'url' => '',
+            'Thanks' => '',
+        ];
+    }
+"
+
+As you can see we are using the constructor to send notifications to users by passing a variable inside the constructor
+and that constructor variable is being used inside the "toMail()" method to store keys like body, enrollmentText, url and Thanks
+
+
+We can use 2 ways to send notifications to the users, first is by using a trait called notifiable to an eloquent class and send 
+notification to all users.
+
+The other way us by using notification facade and make sure to pull the correct use statement "use Illuminate\Support\Facades\Notification".
+
+Now we will use the "Notification::send()" method to send notification to the users as shown below:
+"Notification::send($user, new Your_Notification_Class($a_variable_in_the_constructor))"

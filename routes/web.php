@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestsEnrollmentController;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -36,3 +37,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+
+Route::get('/send-test-enrollment',[TestsEnrollmentController::class, 'sendTestNotification']);
