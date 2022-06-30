@@ -58,7 +58,6 @@ We can use ENUM for multiple rolls such as admin, moderators, users and more. Th
 all the multiple roles and can save us from using a lot of if-else statements.
 
 
-
 "Mailing:"
 
 Laravel has a default mailing functionality called switf-mailer and many other mailing systems can be built on top
@@ -263,3 +262,14 @@ The other way us by using notification facade and make sure to pull the correct 
 
 Now we will use the "Notification::send()" method to send notification to the users as shown below:
 "Notification::send($user, new Your_Notification_Class($a_variable_in_the_constructor))"
+
+
+
+
+"SMS NOTIFICATION:"
+
+In default laravel there is no way to send sms notifications but there is a package called "Nexmo". Link to nexmo is given below:
+"https://developer.vonage.com/"
+
+Nexmo is an API based application that connects your app directly with any carrier around the world. There are more things you can 
+do with Nexmo like automatic facebook notifications, voice messages, verified transactions or implement a tool factory authentication.
