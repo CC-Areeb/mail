@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class TestEnrollment extends Notification
 {
     use Queueable;
+    private $enrollmentData;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($enrollmentData)
     {
-        //
+        $this->enrollmentData = $enrollmentData;
     }
 
     /**
@@ -41,9 +42,9 @@ class TestEnrollment extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line($this->enrollmentData['body'])
+                    ->action($this->enrollmentData['enrollmentText'], $this->enrollmentData['url'])
+                    ->line($this->enrollmentData['Thanks']);
     }
 
     /**
