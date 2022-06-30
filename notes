@@ -1,6 +1,9 @@
 THESE NOTES ARE FOR ME AND FOR THOSE WHO WANT TO LEARN IT BUT IN CHUNKS RATHER THAN IN 1 BIG PIECE
 
 
+
+"GATES":
+
 We can use laravel gates so that we can authorize a user and check if they has the correct credentials to 
 perform a specific task
 
@@ -11,7 +14,7 @@ Before using the boot method and gate, we need a new page to see if use is admin
 making a new public function in your controller and returning a view from there to the web.php. 
 
 After this we go back to the AuthServiceProvider and in the boot method we define a gate using this syntax
-" Gate::define(); ". Inside the define method we need to provide some parameters. 
+" Gate::define()". Inside the define method we need to provide some parameters. 
 
 First parameter is the key and this has to be a string that tells us what we want to do. We want to see if 
 the admin is set or not and only the admin can access that private page we made in the views folder, the 
@@ -56,7 +59,8 @@ all the multiple roles and can save us from using a lot of if-else statements.
 
 
 
-Mailing:
+"Mailing:"
+
 Laravel has a default mailing functionality called switf-mailer and many other mailing systems can be built on top
 of switf-mailer
 
@@ -107,7 +111,8 @@ Inside the env file we can change the MAIL_MAILER=smtp to MAIL_MAILER=log and wh
 the mail inside the log file.
 
 
-How to insert any type of attachments in email in laravel:
+"How to insert any type of attachments in email in laravel:"
+
 Always a good idea to have a controller which will handle all the details about your emails and attachments.
 
 
@@ -151,8 +156,46 @@ public function build()
 "
 (The double quotes "" are just for emphises when I am writing these notes for myself).
 
+"public function build()
+{
+    $email = $this->view('emails.employment_mailview')->subject('Employment Application');
+
+    // $attachments is an array with file paths of attachments
+    foreach($attachments as $filePath){
+        $email->attach($filePath);
+    }
+    return $email;
+}"
+
+we can also send multiple attachments and this is one of many ways to do it 
+
 NOTE:
 What is MIME type?
 A MIME type (or media type) is an identifier for file formats or format contents on the Internet.
 MIME stands for Multipurpose Internet Mail Extensions and all MIME types are officially maintained by the
 Internet Assigned Numbers Authority (IANA).
+
+
+
+"NOTIFICATION:"
+
+Notification is very important when builing a web application. Take an example of a notification system that
+will notify users that an app is going under maintainance so the company sends 1 notification about the 
+maintainance to all its users so we can say we have a 1 to many link between notification and users.
+
+
+To make a notification class, we can do it by performing the command "php artisan make:notification name_of_your_notification".
+It is same as how we created the email. The Notifications folder will be created inside the app folder and inside that a php
+file which is our notification file name.
+
+
+This notification file has a constructor, a "via($notifiable)" function with a parameter, a "toMail($notifiable)" with the same
+parameter as the "via()" method and "toArray($notifiable)" method.
+
+
+The constructor takes in the relavent information that we want to send through notification.
+
+The "via()" method has a notifiable as a parameter which will defines which notification channels we will use.
+
+The "toMail()" method is an indivisual method that is used for every notification channel that allows us to specifically
+define how to send one of these notifications.
