@@ -273,3 +273,8 @@ In default laravel there is no way to send sms notifications but there is a pack
 
 Nexmo is an API based application that connects your app directly with any carrier around the world. There are more things you can 
 do with Nexmo like automatic facebook notifications, voice messages, verified transactions or implement a tool factory authentication.
+
+Once you make the account on then go to your .env file and add the VONAGE_KEY and VONAGE_SECRET and use the values that are given to you.
+
+Now we make a controller and a new end-point(https://url/end-point)
+this new end point will send us the sms notification whenever it is hit or accessed.
