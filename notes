@@ -57,3 +57,48 @@ all the multiple roles and can save us from using a lot of if-else statements.
 
 
 Mailing:
+Laravel has a default mailing functionality called switf-mailer and many other mailing systems can be built on top
+of switf-mailer
+
+To send mails we need to user a mail-driver and laravel has 8 mail drivers in the mail.php file inside the config 
+folder. For this we will use the mailable
+
+We can generate a mailing template using the artisan command in your CLI. The command for making a mail is 
+php artisan make:mail <flag-name>, we have to write a flag of the -m or --markdown[=MARKDOWN].
+
+Sample mail template: 
+php artisan make:mail SampleMail -m  -----------> -m is a markdown flag
+php artisan make:mail SampleMail -m emails.sample -------> the emails is a folder and sample is the file name
+
+when you make a mail, you will get a folder of Mail in the app folder and a file by the name you choose during
+the command. Open that php file and you can see that it uses 2 traits called Queueable and SerializeModels
+
+Queueable is so that we can queue all the incomming mails in a line and the SerializeModels is used to 
+serialize the eloquent models correctly
+
+NOTE:
+To serialize data means to convert a value to a sequence of bits, so that it can be stored in a file, a memory buffer,
+or transmitted across a network.
+
+in this mail file there is an empty constructor and a build method. Inside the build method we define a view
+to return. Syntax below:
+
+return $this->markdown('view.name');
+
+We can also show more things like subject and title to the users
+
+php artisan make:mail SampleMail -m emails.sample, with this we get a new folder by the name emails and an mail 
+blade file inside this folder.
+
+We can do all those things we do with a normal blade file like condional statemetns and all the blade directives.
+
+To send actual mail from this, we need to make sure that we have a mailing provider or a local develoment. We will 
+use mailing provider called mail trap.
+
+Set the .env file data given by mailtrap (different for everyone) and inside the web.php we need to make sure to 
+use the Mail facade and write the mail code as shown -----> Mail::to('sample@example.com')->send(new WelcomeMail());
+the WelcomeMail is a mailable 
+
+NOTE: make sure you copy the correct details of mailtrap for the .env file
+
+
