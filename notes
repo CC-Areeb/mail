@@ -266,7 +266,7 @@ Now we will use the "Notification::send()" method to send notification to the us
 
 
 
-"SMS NOTIFICATION:"
+"SMS NOTIFICATION: incomplete"
 
 In default laravel there is no way to send sms notifications but there is a package called "Nexmo". Link to nexmo is given below:
 "https://developer.vonage.com/"
@@ -278,3 +278,7 @@ Once you make the account on then go to your .env file and add the VONAGE_KEY an
 
 Now we make a controller and a new end-point(https://url/end-point)
 this new end point will send us the sms notification whenever it is hit or accessed.
+
+
+
+"SENDING EMAILS WITH QUEUES:"

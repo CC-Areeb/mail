@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\TestsEnrollmentController;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
@@ -41,3 +43,7 @@ Route::middleware([
 
 
 Route::get('/send-test-enrollment',[TestsEnrollmentController::class, 'sendTestNotification']);
+
+// Route::get('/sms',[SmsController::class, 'index']);
+
+Route::resource('/user_mail', ContactController::class);
